@@ -65,3 +65,24 @@ loghub[https://github.com/logpai/loghub/tree/master]
  
 # Learning
  Start with the Basics: For Spark, the core dependencies typically include Java (since Spark is JVM-based), Scala (if your code is written in Scala), and any libraries you’ll need for specific tasks (e.g., data processing, connectors for sources like Kafka, or HDFS).
+
+ Spark is written in Scala, so Scala is the most natural and native language for interacting with Spark. As a result, Spark’s core APIs are designed with Scala in mind, which allows for a more seamless experience and often better performance compared to other languages.
+
+Scala is a compiled language, which generally offers better performance than interpreted languages like Python. This is particularly beneficial when working with large datasets where performance is a critical factor.
+
+## The combination of Scala and Spark brings a few advantages:
+
+Performance: Scala runs on the JVM, so it provides better performance compared to Python for large datasets.
+Functional Programming: Spark operations are highly inspired by functional programming paradigms, and Scala supports functional programming naturally.
+Integration with Spark Core: Since Spark itself is written in Scala, using Scala enables you to access Spark’s internal optimizations and core APIs directly.
+Concurrency & Parallelism: Scala’s features allow easy handling of parallelism and concurrency, which is crucial when working with distributed computing frameworks like Spark.
+
+## ERRORS:
+this error:
+Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Exception in thread "main" org.apache.spark.SparkException: Failed to get main class in JAR with error 'null'.  Please specify one with --class.
+
+It is beacuse :
+
+The error you're encountering is because Spark expects a JAR file when you run spark-submit with Scala code, and it doesn't know where to find the main class in the Scala script. Spark needs to know the entry point of your application (the class that contains the main method) in order to run the job.
+

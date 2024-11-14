@@ -5,6 +5,10 @@ services:
     environment:
       - SPARK_MODE=master
     command: ["/opt/spark/bin/spark-class", "org.apache.spark.deploy.master.Master"]
+    volumes:
+      - ./data/raw:/data/raw
+      - ./src/main/python:/src/main/python
+      - ./src/main/scala:/src/main/scala
     ports: 
       - "8080:8080"
     networks:
