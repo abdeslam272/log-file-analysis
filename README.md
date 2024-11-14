@@ -63,3 +63,5 @@ we will use some free log data from this github repo:
 loghub[https://github.com/logpai/loghub/tree/master]
  this file is going to be our raw data : https://github.com/logpai/loghub/blob/master/Spark/Spark_2k.log
  
+# Learning
+ Start with the Basics: For Spark, the core dependencies typically include Java (since Spark is JVM-based), Scala (if your code is written in Scala), and any libraries you’ll need for specific tasks (e.g., data processing, connectors for sources like Kafka, or HDFS).
