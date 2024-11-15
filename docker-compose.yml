@@ -9,6 +9,17 @@ services:
       - ./data/raw:/data/raw
       - ./src/main/python:/src/main/python
       - ./src/main/scala:/src/main/scala
+    entrypoint: >
+      /bin/bash -c "
+      apt-get update &&
+      apt-get install -y apt-transport-https curl gnupg &&
+      echo 'deb https://repo.scala-sbt.org/scalasbt/debian all main' > /etc/apt/sources.list.d/sbt.list &&
+      curl -sL https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x99E82A75642AC823 > /tmp/sbt-key.asc &&
+      apt-key add /tmp/sbt-key.asc &&
+      apt-get update &&
+      apt-get install -y sbt &&
+      /bin/bash
+      "
     ports: 
       - "8080:8080"
     networks:
